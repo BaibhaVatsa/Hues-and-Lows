@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
         if (req.type === 'today') {
             msg = today;
         } else {
-            msg = getMonth(parseInt(req));
+            msg = getMonth(parseInt(req.month));
         }
         res.status(200).send(msg);
     } catch {
@@ -37,6 +37,7 @@ app.post('/', (req, res) => {
         req = JSON.parse(req);
         nEvent = new Event(req.date, req.time, req.emotions, req.notes, req.files);
         events.push(nEvent);
+        today = events.toString();
         putMonth(parseInt(req.date.substring(0,2)), nEvent);
         res.status(200);
     } catch {
