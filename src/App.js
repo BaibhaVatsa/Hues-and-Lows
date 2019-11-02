@@ -6,7 +6,6 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-<<<<<<< HEAD
 import HomeView from "./views/HomeView";
 import NotesView from "./views/NotesView";
 import CalendarView from "./views/CalendarView";
@@ -38,21 +37,6 @@ class App extends React.Component {
       </Router>
     );
   }
-=======
-import HomeView from './views/HomeView';
-import NotesView from './views/NotesView';
-import CalendarView from './views/CalendarView';
-import InputView from './views/InputView';
-
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <InputView />
-      </div>
-    </Router>
-  );
->>>>>>> stash
 }
 
 export default App;
