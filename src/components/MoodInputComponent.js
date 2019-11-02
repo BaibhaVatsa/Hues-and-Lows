@@ -12,8 +12,7 @@ class MoodInput extends React.Component {
         this.setState({
             emotions: this.state.emotions.concat(emotion)
         });
-
-        this.props.res.bind(this, emotions);
+        this.props.res.bind(this, this.state.emotions);
     }
 
     render() {
