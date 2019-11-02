@@ -24,7 +24,6 @@ class AddButton extends React.Component {
     }
 
     render() {
-
         return (
             <Fab
                 color="primary" size="small" aria-label="add"
@@ -33,7 +32,6 @@ class AddButton extends React.Component {
                 onClick={() => this.clicked()}>
                 <AddIcon />
             </Fab >
-
         );
     }
 
