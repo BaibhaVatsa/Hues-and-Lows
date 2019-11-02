@@ -62,29 +62,13 @@ export default class InputView extends React.Component {
     displayNotes() {
         // const textFieldBig = this.classes.textField.splice();
         const useStyles = makeStyles
-        const style =
-        {
-            width: '100%',
-            maxWidth: 360,
-            textAlign: 'center',
-            fontFamily: 'Roboto, sans-serif',
-            fontSize: 'large',
-            backgroundColor: '#f7f7f7',
-            padding: '20px',
-            alignContent: 'center',
-            borderStyle: 'dotted',
-            borderWidth: '2px',
-            borderColor: '#D2B48C',
-            borderRadius: '25px'
-        }
-        if (this.state.noteValue.length != 0) {
+        if (this.state.noteValue) {
             return (
                 <TextField
                     id="standard-multiline-flexible"
                     label=""
                     multiline
                     rowsMax="4"
-                    styles={style}
 
                     value={this.state.noteValue}
                     onChange={this.handleChange}
@@ -112,6 +96,9 @@ export default class InputView extends React.Component {
                             justify="center"
                             alignItems="flex-start"
                         >
+                            <Grid item xs={12}>
+                                {this.displayNotes()}
+                            </Grid>
                             <Grid item>
                                 <Typography variant="body2" gutterBottom>
                                     <NotesInputComponent />
@@ -128,7 +115,6 @@ export default class InputView extends React.Component {
                         <SubmitButtonComponent />
                     </DialogContent>
                 </Dialog>
-                {this.displayNotes}
             </div>
         );
     }
