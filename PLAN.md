@@ -83,6 +83,6 @@
 ### Array for list of extra items uploaded by user like images
 ### 
 
-# NodeJS + Express
+# NodeJS + Express vs Firebase
 ## Server
 ## YAML database?
