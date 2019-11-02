@@ -25,11 +25,15 @@ class AddButton extends React.Component {
 
     render() {
         return (
-            <Fab
+            <Button
                 color="primary" size="small" aria-label="add"
+<<<<<<< HEAD
                 className={this.classes.fab}
                 style={{boxShadow: 'none'}}
                 onClick={this.props.clicked}>
+=======
+                className={this.classes.fab}>
+>>>>>>> stash
                 <AddIcon />
             </Fab >
         );
