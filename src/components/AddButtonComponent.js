@@ -4,8 +4,8 @@ import AddIcon from '@material-ui/icons/Add';
 import { makeStyles } from '@material-ui/core/styles';
 
 class AddButton extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.classes = makeStyles(theme => ({
             fab: {
                 margin: theme.spacing(1),
@@ -14,22 +14,22 @@ class AddButton extends React.Component {
                 marginRight: theme.spacing(1),
             },
         }));
-        this.isClicked = false;
+        // this.isClicked = false;
     }
 
-    clicked() {
-        this.setState({
-            isClicked: true,
-        })
-    }
+    // clicked() {
+    //     this.setState({
+    //         isClicked: true,
+    //     })
+    // }
 
     render() {
         return (
             <Fab
                 color="primary" size="small" aria-label="add"
                 className={this.classes.fab}
-
-                onClick={() => this.clicked()}>
+                style={{boxShadow: 'none'}}
+                onClick={this.props.clicked}>
                 <AddIcon />
             </Fab >
         );

@@ -1,17 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import Fab from '@material-ui/core/Fab';
 import { makeStyles } from '@material-ui/core/styles';
-import ArrowRightComponent from './ArrowRightComponent';
 
-//import PropTypes from 'prop-types';
-
-
-
-class ArrowLeftComponent extends ArrowRightComponent
+class ArrowLeftComponent extends React.Component
  {
-    render() {
+    constructor() {
+        super();
+        this.classes = makeStyles(theme => ({
+            fab: {
+                margin: theme.spacing(1),
+            }
+        }));
+        this.isClicked = false;
+    }
 
+    clicked() {
+        this.setState({
+            isClicked: true,
+        })
+    }
+
+    render() {
         return (
             <Fab
                 size="large" aria-label="add"
@@ -21,7 +31,6 @@ class ArrowLeftComponent extends ArrowRightComponent
                 onClick={() => this.clicked()}>
                 <ArrowBackIosIcon />
             </Fab >
-
         );
 
     }
@@ -33,7 +42,7 @@ const  buttonstyle = {
     color: 'white',
     cursor: 'pointer',
     borderRadius: '50%',
-    
+    boxShadow: 'none',
   }
 
 

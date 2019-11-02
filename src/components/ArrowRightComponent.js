@@ -1,11 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import Fab from '@material-ui/core/Fab';
 import { makeStyles } from '@material-ui/core/styles';
-
-//import PropTypes from 'prop-types';
-
-
 
 class ArrowRightComponent extends React.Component 
  {
@@ -36,7 +32,6 @@ class ArrowRightComponent extends React.Component
                 onClick={() => this.clicked()}>
                 <ArrowForwardIosIcon />
             </Fab >
-
         );
 
     }
@@ -48,6 +43,7 @@ const  buttonstyle = {
     color: 'white',
     borderRadius: '50%',
     cursor: 'pointer',
+    boxShadow: 'none',
   }
 
 
