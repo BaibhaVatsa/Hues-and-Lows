@@ -16,7 +16,7 @@ class CalendarComponent extends React.Component {
     render() {
         return (
             <div>
-                <Calendar onChange={this.passOnChange} value={this.props.date}/>
+                <Calendar onChange={this.passOnChange} value={this.props.date} />
             </div>
         );
     }

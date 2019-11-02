@@ -1,18 +1,18 @@
 import React from 'react';
 import CancelButtonComponent from '../components/CancelButtonComponent';
 import ExtraDataInputComponent from '../components/ExtraDataInputComponent';
-import MoodInputComponent from '../components/MoodInputComponent';
+//import MoodInputComponent from '../components/MoodInputComponent';
 import NotesInputComponent from '../components/NotesInputComponent';
-// import SubmitButtonComponent from '../components/SubmitButtonComponent';
+import SubmitButtonComponent from '../components/SubmitButtonComponent';
 
-export default class HomeView extends React.Component {
+export default class InputView extends React.Component {
     render() {
         return (
             <div>
-                <MoodInputComponent />
+                {/* <MoodInputComponent /> */}
                 <NotesInputComponent />
                 <ExtraDataInputComponent />
-                {/* <SubmitButtonComponent /> */}
+                <SubmitButtonComponent />
                 <CancelButtonComponent />
             </div>
         );
