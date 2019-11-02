@@ -6,7 +6,7 @@
 ## Arrows Component
 ## Pinwheel Component
 ## Add Button Component
-## Settings Menu Component
+<!-- ## Settings Menu Component -->
 
 # Notes View
 ## Popup Component?
@@ -50,11 +50,21 @@
 
 # Data Structures
 ## User Class
+- Today 
+- Name
+- Password
+- HashMap for month to array of 
+
 ## Emotion Class
-## Month Class
-## Notes Class
-##  
+- Description of emotion
+- Name
+- Colour associated with it 
+
+## Event Class
+### Has a notes field
+### Array for list of extra items uploaded by user like images
+### 
 
 # NodeJS + Express
-## 
-
+## Server
+## YAML database?
