@@ -8,7 +8,7 @@ import ArrowRightComponent from './ArrowRightComponent';
 
 
 
-export class ArrowLeftComponent extends ArrowRightComponent
+class ArrowLeftComponent extends ArrowRightComponent
  {
     render() {
 

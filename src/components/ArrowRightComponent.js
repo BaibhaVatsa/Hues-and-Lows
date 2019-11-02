@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 
-export class ArrowRightComponent extends React.Component 
+class ArrowRightComponent extends React.Component 
  {
     constructor() {
         super();
