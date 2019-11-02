@@ -7,9 +7,8 @@ class CancelButton extends AddButton {
     render() {
         return (
             <Fab
-                color='secondary'size="small" aria-label="add"
-                className={this.classes.fab}
-                onClick={() => this.clicked()}>
+                color="secondary" size="small" aria-label="add"
+                className={this.classes.fab}>
                 <CloseSharpIcon />
             </Fab >
         );

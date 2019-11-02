@@ -25,11 +25,9 @@ class AddButton extends React.Component {
 
     render() {
         return (
-            <Fab
+            <Button
                 color="primary" size="small" aria-label="add"
-                className={this.classes.fab}
-
-                onClick={() => this.clicked()}>
+                className={this.classes.fab}>
                 <AddIcon />
             </Fab >
         );

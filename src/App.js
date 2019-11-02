@@ -9,22 +9,13 @@ import {
 import HomeView from './views/HomeView';
 import NotesView from './views/NotesView';
 import CalendarView from './views/CalendarView';
+import InputView from './views/InputView';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Switch>
-          <Route path="/home">
-            <HomeView />
-          </Route>
-          <Route path="/notes">
-            <NotesView />
-          </Route>
-          <Route path="/calendar">
-            <CalendarView />
-          </Route>
-        </Switch>
+        <InputView />
       </div>
     </Router>
   );

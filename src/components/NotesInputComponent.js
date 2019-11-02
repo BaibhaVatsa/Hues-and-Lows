@@ -6,6 +6,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import { makeStyles } from '@material-ui/core/styles';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import CancelButton from './CancelButtonComponent';
+import CheckButton from './CheckButtonComponent';
 
 class NoteInput extends React.Component {
     constructor() {
@@ -23,7 +25,6 @@ class NoteInput extends React.Component {
         }));
         this.state = {
             open: false,
-            //currentValue: '',
             noteValue: '',
             value: '',
         };
@@ -73,22 +74,18 @@ class NoteInput extends React.Component {
                         />
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">
-                            Cancel
-                </Button>
+                        <CancelButton onClick={this.handleClose} />
                         <Button
                             onClick={() => {
                                 this.handleClose();
+
                                 this.setState({
                                     noteValue: this.state.value
                                 });
-                            }}
-                            color="primary">
-                            OK
-                </Button>
+                            }} />
                     </DialogActions>
                 </Dialog>
-                {this.state.noteValue}
+                {/* {this.state.noteValue} */}
             </div>
 
         );
