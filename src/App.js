@@ -11,7 +11,8 @@ import CalendarView from "./views/CalendarView";
 import DateComponent from "./components/DateComponent";
 import "moment-timezone";
 import moment from "moment";
-import InputView from "./views/InputView"
+import ListViewNoteComponent from "./components/ListViewNoteComponent";
+import InputView from "./views/InputView";
 import NotesView from "./views/NotesView";
 
 class App extends React.Component {
@@ -34,10 +35,14 @@ class App extends React.Component {
     this.setState({ date: new Date(curDate.setDate(curDate.getDate() - 1)) });
   };
 
-  sameDay = (curDate) => {
+  sameDay = curDate => {
     let todaysDate = new Date();
-    return curDate.getDate() === todaysDate.getDate() && curDate.getMonth() === todaysDate.getMonth() && curDate.getFullYear() === todaysDate.getFullYear()
-  }
+    return (
+      curDate.getDate() === todaysDate.getDate() &&
+      curDate.getMonth() === todaysDate.getMonth() &&
+      curDate.getFullYear() === todaysDate.getFullYear()
+    );
+  };
 
   dateForward = () => {
     let curDate = this.state.date;
@@ -59,7 +64,13 @@ class App extends React.Component {
       method: "GET",
       credentials: "same-origin",
       body: JSON.stringify({
-        type: () => {if (this.sameDay(this.state.date)) { return 'today'; } else { return 'month'; }},
+        type: () => {
+          if (this.sameDay(this.state.date)) {
+            return "today";
+          } else {
+            return "month";
+          }
+        },
         data: () => {}
       })
     });
@@ -68,12 +79,12 @@ class App extends React.Component {
     this.setState({
       entries: newC
     });
-  }
+  };
 
   updateDB = async () => {
-    await fetch();
-    refetchDB();
-  }
+    // await fetch();
+    this.refetchDB();
+  };
 
   render() {
     const entries = this.state.entries;
@@ -92,7 +103,8 @@ class App extends React.Component {
               />
             </Route>
             <Route path="/notes">
-              <NotesView />
+              {/* <NotesView /> */}
+              <ListViewNoteComponent />
             </Route>
             <Route path="/calendar">
               <CalendarView
