@@ -34,6 +34,11 @@ class App extends React.Component {
     this.setState({ date: new Date(curDate.setDate(curDate.getDate() - 1)) });
   };
 
+  sameDay = (curDate) => {
+    let todaysDate = new Date();
+    return curDate.getDate() === todaysDate.getDate() && curDate.getMonth() === todaysDate.getMonth() && curDate.getFullYear() === todaysDate.getFullYear()
+  }
+
   dateForward = () => {
     let curDate = this.state.date;
     let todaysDate = new Date();
@@ -49,8 +54,25 @@ class App extends React.Component {
     }
   };
 
-  updateDB = () => {
-    
+  refetchDB = async () => {
+    const newC = await fetch("http://127.0.0.1:8000", {
+      method: "GET",
+      credentials: "same-origin",
+      body: JSON.stringify({
+        type: () => {if (this.sameDay(this.state.date)) { return 'today'; } else { return 'month'; }},
+        data: () => {}
+      })
+    });
+    newC = JSON.parse(newC);
+    console.log(newC);
+    this.setState({
+      entries: newC
+    });
+  }
+
+  updateDB = async () => {
+    await fetch();
+    refetchDB();
   }
 
   render() {
