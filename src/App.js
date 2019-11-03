@@ -14,10 +14,13 @@ import moment from "moment";
 import NotesView from "./views/NotesView";
 
 class App extends React.Component {
-  state = {
-    date: new Date(),
-    enties: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: new Date(),
+      entries: fetch,
+    };
+  }
 
   changeDate = (newDate) => {
     this.setState({
@@ -44,7 +47,13 @@ class App extends React.Component {
       this.setState({ date: new Date(curDate.setDate(curDate.getDate() + 1)) });
     }
   };
+
+  pinWheelClicked(value) {
+    const change = value;
+  }
+
   render() {
+    const entries = this.state.entries;
     return (
       //<DateComponent date={this.state.date} />
       <Router>
@@ -55,6 +64,11 @@ class App extends React.Component {
                 date={this.state.date}
                 dateBack={this.dateBack}
                 dateForward={this.dateForward}
+                entriesFromServer={entries}
+                callbackFromApps={this.pinWheelClicked}
+                onChange={this.setState({
+                  entries: fetch
+                })}
               />
             </Route>
             <Route path="/notes">

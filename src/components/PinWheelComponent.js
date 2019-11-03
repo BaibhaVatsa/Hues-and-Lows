@@ -116,7 +116,7 @@ class PinWheel extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            colors: this.props.EntriesFromApp
+            colors: this.props.entries
         };
     }
 
@@ -130,8 +130,7 @@ class PinWheel extends React.Component {
         return (
             <div class="wheel">
                 <ul className="umbrella" onClick={this.launchNotesView}>
-                    {/* 
-                    {this.state.colors.map((value, index) => <li key={index} className={`color ${value}`}></li>)} */}
+                    {/*{this.state.colors.map((value, index) => <li key={index} className={`color ${value}`}></li>)} */}
                 </ul>
             </div>
         );
