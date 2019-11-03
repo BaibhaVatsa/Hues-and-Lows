@@ -9,6 +9,6 @@ export default class Emotion {
     }
 
     getName() {
-        return this.getName;
+        return this.name;
     }
 }

@@ -55,7 +55,7 @@ class NoteInput extends React.Component {
     render() {
         return (
             <div>
-                <Button variant="outlined" color="primary" size="large" onClick={this.handleClickOpen}>
+                <Button variant="outlined" color="secondary" size="large" onClick={this.handleClickOpen}>
                     Add Notes
         </Button>
                 <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">

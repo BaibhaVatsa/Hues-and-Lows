@@ -8,7 +8,7 @@ class ExtraDataInput extends React.Component {
                 <Button
                     variant="outlined"
                     component="label"
-                    color="primary"
+                    color="secondary"
                     size="large"
                 >
                     Upload Images

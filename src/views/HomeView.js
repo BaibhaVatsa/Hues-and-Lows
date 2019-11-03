@@ -21,6 +21,16 @@ const HomeView = props => {
   // render() {
   return (
     <React.Fragment style={{ margin: "auto" }}>
+      <h1
+        style={{
+          position: "relative",
+          marginTop: "0px",
+          paddingTop: "0px",
+          fontSize: "1.3rem"
+        }}
+      >
+        Hues and Lows
+      </h1>
       <div style={homePageStyle()}>
         <ArrowLeftComponent dateBack={props.dateBack} />
         <DateComponent
