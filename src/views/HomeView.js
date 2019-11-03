@@ -7,7 +7,6 @@ import DateComponent from "../components/DateComponent";
 import PinWheelComponent from "../components/PinWheelComponent";
 import PropTypes from "prop-types";
 import { useHistory } from 'react-router-dom';
-import {Spring} from 'react-spring/renderprops'
 
 
 const HomeView = (props) => {
@@ -25,19 +24,11 @@ const HomeView = (props) => {
       <React.Fragment style={{ margin: "auto" }}>
         <div style={homePageStyle()}>
           <ArrowLeftComponent dateBack={props.dateBack} />
-
-           <Spring
-            from={{ opacity: 0 }}
-             to={{ opacity: 1 }}>
-             {propss =>  <div style={propss}>
-             <DateComponent date={props.date} onClick={() => history.push("/calendar")}/>
-             </div>} 
-           </Spring> 
-
+          <DateComponent date={props.date} onClick={() => history.push("/calendar")}/>
           <ArrowRightComponent dateForward={props.dateForward} />
         </div>
         <PinWheelComponent colors={["black", "white", "blue"]} />
-        <AddButtonComponent />
+        {/* <InputView /> */}
       </React.Fragment>
     );
   // }

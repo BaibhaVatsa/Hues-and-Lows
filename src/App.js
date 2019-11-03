@@ -18,7 +18,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       date: new Date(),
-      entries: fetch,
+      entries: [],
     };
   }
 
@@ -48,10 +48,6 @@ class App extends React.Component {
     }
   };
 
-  pinWheelClicked(value) {
-    const change = value;
-  }
-
   render() {
     const entries = this.state.entries;
     return (
@@ -65,10 +61,6 @@ class App extends React.Component {
                 dateBack={this.dateBack}
                 dateForward={this.dateForward}
                 entriesFromServer={entries}
-                callbackFromApps={this.pinWheelClicked}
-                onChange={this.setState({
-                  entries: fetch
-                })}
               />
             </Route>
             <Route path="/notes">
