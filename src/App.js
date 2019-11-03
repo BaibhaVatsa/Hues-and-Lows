@@ -45,9 +45,9 @@ class App extends React.Component {
 
     if (
       !(
-        curDate.getDate() === todaysDate.getDate() &&
-        curDate.getMonth() === todaysDate.getMonth() &&
-        curDate.getFullYear() === todaysDate.getFullYear()
+        curDate.getDate() >= todaysDate.getDate() &&
+        curDate.getMonth() >= todaysDate.getMonth() &&
+        curDate.getFullYear() >= todaysDate.getFullYear()
       )
     ) {
       this.setState({ date: new Date(curDate.setDate(curDate.getDate() + 1)) });
