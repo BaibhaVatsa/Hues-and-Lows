@@ -16,12 +16,12 @@ import Typography from '@material-ui/core/Typography';
 export default class InputView extends React.Component {
     constructor() {
         super();
-
-
         this.state = {
+            date: new Date(),
             open: false,
             noteValue: '',
             value: '',
+            emotion: []
         };
         this.handleClickOpen = this.handleClickOpen.bind(this);
         this.handleClose = this.handleClose.bind(this);
@@ -67,6 +67,20 @@ export default class InputView extends React.Component {
         }
     }
 
+    getEmotions(emotions) {
+        this.setState({
+            emotions: emotions
+        });
+        console.log(this.state.emotion)
+    }
+
+    getNotes(notes) {
+        this.setState({
+            noteValue: notes
+        });
+        console.log(this.state.noteValue)
+    }
+
     render() {
         return (
             <div>
@@ -75,13 +89,13 @@ export default class InputView extends React.Component {
                     fullWidth={true}
                     maxWidth="md"
                     open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
-                    <DialogTitle id="form-dialog-title" style={{margin: "auto"}}>How are you feeling?</DialogTitle>
+                    <DialogTitle id="form-dialog-title" style={{ margin: "auto" }}>How are you feeling?</DialogTitle>
                     <DialogContent>
-                        {/* <Grid>
+                        <Grid>
                             <Grid item>
-                                <MoodInputComponent />
-                                </Grid>                        
-                        </Grid> */}
+                                <MoodInputComponent callbackFromInputView={() => { this.getEmotions() }} />
+                            </Grid>
+                        </Grid>
                         <Grid
                             container
                             spacing="2"
@@ -94,7 +108,8 @@ export default class InputView extends React.Component {
                             </Grid>
                             <Grid item>
                                 <Typography variant="body2" gutterBottom>
-                                    <NotesInputComponent />
+                                    <NotesInputComponent callbackFromInputView={() => { this.getNotes() }}
+                                    />
                                 </Typography>
                             </Grid>
                             <Grid item>
@@ -109,7 +124,10 @@ export default class InputView extends React.Component {
                             justify="flex-end"
                             alignItems="flex-end"
                         >
-                            <Grid item><SubmitButtonComponent updateDB={this.props.updateDB} closePopup={this.handleClose}/></Grid>
+                            <Grid item><SubmitButtonComponent
+                                emotionsFromInputView={this.state.emotions}
+                                notesFromInputView={this.state.noteValue}
+                                updateDB={this.props.updateDB} closePopup={this.handleClose} /></Grid>
                         </Grid>
                     </DialogContent>
                 </Dialog>

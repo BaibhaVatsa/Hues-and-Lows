@@ -26,11 +26,20 @@ class MoodInput extends React.Component {
         // this.getName();
     }
 
-
     addToList(emotion) {
-        this.setState({
-            emotions: this.state.emotions.concat(AllEmotions[emotion].getColor())
-        });
+        if (this.state.emotions.includes(emotion)) {
+            this.setState({
+                emotions: this.state.emotions.splice(this.state.emotions.indexOf(emotion), 1)
+            });
+        } else {
+            this.setState({
+                emotions: this.state.emotions.concat(AllEmotions[emotion].getColor())
+            });
+        }
+    }
+
+    sendEmotion() {
+        this.props.callbackFromInputView(this.state.emotions);
     }
 
     BootstrapButton = withStyles({

@@ -6,9 +6,9 @@ const SubmitButton = (props) => {
     return (
         <div>
             <Button onClick={() => {
-                props.updateDB();
+                props.updateDB(new Event(props.date, props.time, props.emotionsFromInputView, props.notesFromInputView));
                 props.closePopup();
-                }} color="primary">
+            }} color="primary">
                 Submit
           </Button>
         </div>

@@ -49,8 +49,29 @@ class NoteInput extends React.Component {
         this.setState({
             value: event.target.value
         });
-
     };
+
+    sendNote() {
+        this.props.callbackFromInputView(this.state.noteValue);
+    }
+
+    showText() {
+        if (this.state.noteValue.length > 0) {
+            return (
+                <TextField
+                    id="standard-multiline-flexible"
+                    label=""
+                    multiline
+                    rowsMax="4"
+
+                    value={this.state.noteValue}
+                    onChange={this.handleChange}
+                    className={this.classes.textField}
+                    margin="normal"
+                />
+            );
+        }
+    }
 
     render() {
         return (
@@ -78,7 +99,6 @@ class NoteInput extends React.Component {
                         <Button
                             onClick={() => {
                                 this.handleClose();
-
                                 this.setState({
                                     noteValue: this.state.value
                                 });
@@ -87,60 +107,7 @@ class NoteInput extends React.Component {
                 </Dialog>
                 {/* {this.state.noteValue} */}
             </div>
-
         );
     }
 }
-
-//const [open, setOpen] = React.useState(false);
-
 export default NoteInput;
-
-// export default function FormDialog() {
-//     const [open, setOpen] = React.useState(false);
-
-//     handleClickOpen() {
-//         setOpen(true);
-//     };
-
-//     const handleClose = () => {
-//         setOpen(false);
-//     };
-
-//     const [value, setValue] = React.useState('');
-
-//     const handleChange = event => {
-//         setValue(event.target.value);
-//     };
-
-//     return (
-//         <div>
-//             <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-//                 Add Notes
-//             </Button>
-//             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-//                 <DialogTitle id="form-dialog-title">Notes</DialogTitle>
-//                 <DialogContent>
-//                     <TextField
-//                         id="standard-multiline-flexible"
-//                         label=""
-//                         multiline
-//                         rowsMax="4"
-//                         value={value}
-//                         onChange={handleChange}
-//                         className={classes.textField}
-//                         margin="normal"
-//                     />
-//                 </DialogContent>
-//                 <DialogActions>
-//                     <Button onClick={handleClose} color="primary">
-//                         Cancel
-//                     </Button>
-//                     <Button onClick={handleClose} color="primary">
-//                         Subscribe
-//                     </Button>
-//                 </DialogActions>
-//             </Dialog>
-//         </div>
-//     );
-// }
