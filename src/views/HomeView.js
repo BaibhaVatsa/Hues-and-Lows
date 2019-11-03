@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React from "react";
 import InputView from "./InputView";
 import ArrowLeftComponent from "../components/ArrowLeftComponent";
@@ -8,10 +6,9 @@ import ArrowRightComponent from "../components/ArrowRightComponent";
 import DateComponent from "../components/DateComponent";
 import PinWheelComponent from "../components/PinWheelComponent";
 import PropTypes from "prop-types";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
-
-const HomeView = (props) => {
+const HomeView = props => {
   let history = useHistory();
 
   let homePageStyle = () => {
@@ -22,19 +19,22 @@ const HomeView = (props) => {
   };
 
   // render() {
-    return (
-      <React.Fragment style={{ margin: "auto" }}>
-        <div style={homePageStyle()}>
-          <ArrowLeftComponent dateBack={props.dateBack} />
-          <DateComponent date={props.date} onClick={() => history.push("/calendar")}/>
-          <ArrowRightComponent dateForward={props.dateForward} />
-        </div>
-        <PinWheelComponent colors={["black", "white", "blue"]} />
-        <InputView />
-      </React.Fragment>
-    );
+  return (
+    <React.Fragment style={{ margin: "auto" }}>
+      <div style={homePageStyle()}>
+        <ArrowLeftComponent dateBack={props.dateBack} />
+        <DateComponent
+          date={props.date}
+          onClick={() => history.push("/calendar")}
+        />
+        <ArrowRightComponent dateForward={props.dateForward} />
+      </div>
+      <PinWheelComponent colors={["black", "white", "blue"]} />
+      <InputView />
+    </React.Fragment>
+  );
   // }
-}
+};
 // PropTypes
 // HomeView.propTypes = {
 //   date: PropTypes.object.isRequired,
@@ -43,4 +43,3 @@ const HomeView = (props) => {
 // };
 
 export default HomeView;
->>>>>>> d8376900cda9ae6c36bb5549f0bdc27c05554109

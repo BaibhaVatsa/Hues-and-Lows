@@ -49,6 +49,7 @@ const buttonstyle = {
 
 // PropTypes
 ArrowRightComponent.propTypes = {
+  date: PropTypes.object.isRequired,
   dateForward: PropTypes.func.isRequired
 };
 
