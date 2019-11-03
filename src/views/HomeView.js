@@ -1,5 +1,5 @@
 import React from "react";
-import AddButtonComponent from "../components/AddButtonComponent";
+import InputView from "./InputView";
 import ArrowLeftComponent from "../components/ArrowLeftComponent";
 import ArrowRightComponent from "../components/ArrowRightComponent";
 import DateComponent from "../components/DateComponent";

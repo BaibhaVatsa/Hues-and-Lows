@@ -55,7 +55,7 @@ class NoteInput extends React.Component {
     render() {
         return (
             <div>
-                <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
+                <Button variant="outlined" color="primary" size="large" onClick={this.handleClickOpen}>
                     Add Notes
         </Button>
                 <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
@@ -74,7 +74,7 @@ class NoteInput extends React.Component {
                         />
                     </DialogContent>
                     <DialogActions>
-                        <CancelButton onClick={this.handleClose} />
+                        <Button onClick={this.handleClose}><CancelButton /></Button>
                         <Button
                             onClick={() => {
                                 this.handleClose();
@@ -82,7 +82,7 @@ class NoteInput extends React.Component {
                                 this.setState({
                                     noteValue: this.state.value
                                 });
-                            }} />
+                            }}><CheckButton /></Button>
                     </DialogActions>
                 </Dialog>
                 {/* {this.state.noteValue} */}
