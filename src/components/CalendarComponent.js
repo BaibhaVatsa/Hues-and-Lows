@@ -1,25 +1,16 @@
 import React from 'react';
 import Calendar from 'react-calendar';
+import { useHistory } from 'react-router-dom';
 
-class CalendarComponent extends React.Component {
-    state = {
-        date: new Date()
-    }
+const CalendarComponent = (props) => {
+    let history = useHistory();
 
-    passOnChange = (newDate) => {
-        this.setState({
-            date: newDate
-        });
-        this.props.dateChosen.bind(this, this.state.date);
-    }
-
-    render() {
-        return (
-            <div>
-                <Calendar onChange={this.passOnChange} value={this.props.date} />
-            </div>
-        );
-    }
+    return (
+        <div>
+            <Calendar onChange={() => history.push("/home")} value={props.date} />
+        </div>
+    );
+    
 }
 
 export default CalendarComponent;

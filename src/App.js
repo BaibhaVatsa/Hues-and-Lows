@@ -15,7 +15,8 @@ import moment from "moment";
 
 class App extends React.Component {
   state = {
-    date: new Date()
+    date: new Date(),
+    enties: []
   };
   render() {
     return (
@@ -23,14 +24,14 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route path="/">
+            <Route path="/home">
               <HomeView date={this.state.date} />
             </Route>
             <Route path="/notes">
               <NotesView />
             </Route>
-            <Route path="/calendar">
-              <CalendarView />
+            <Route path="/calendar" component={CalendarView}>
+              {/* <CalendarView /> */}
             </Route>
           </Switch>
         </div>
