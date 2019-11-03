@@ -69,6 +69,7 @@ class App extends React.Component {
             <Route path="/calendar">
               <CalendarView date={this.state.date} changeDate={this.changeDate}/>
             </Route>
+            <Redirect from="*" to="/home" />
           </Switch>
         </div>
       </Router>
