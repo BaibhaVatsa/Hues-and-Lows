@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 import "moment-timezone";
 import moment from "moment";
 import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
 
 export class DateComponent extends Component {
   // state = {
   //   date: new Date()
-  // };
+
   clockStyle = () => {
     return {
       display: "flex",
@@ -42,19 +43,25 @@ export class DateComponent extends Component {
     return {
       fontSize: "8rem",
       textAlign: "center",
-      marginLeft: "22rem",
+      marginLeft: "5rem",
       color: "#507299"
     };
   };
 
+  // handleOnClick = () => {
+  //   this.history.push("/calendar");
+  // };
+
   render() {
     //const date = new Date();
     return (
-      <div style={this.clockStyle()}>
-        <div style={this.dayStyle()}>{this.props.date.getDate()}</div>
-        {<div style={this.monthStyle()}>{moment().format("MMM")}</div>}
+      <Link to="/calendar" style={{ textDecoration: "none" }}>
+        <div style={this.clockStyle()}>
+          <div style={this.dayStyle()}>{this.props.date.getDate()}</div>
+          <div style={this.monthStyle()}>{moment().format("MMM")}</div>
+        </div>
         <div style={this.yearStyle()}>{this.props.date.getFullYear()}</div>
-      </div>
+      </Link>
     );
   }
 }

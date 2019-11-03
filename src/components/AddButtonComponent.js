@@ -14,26 +14,15 @@ class AddButton extends React.Component {
                 marginRight: theme.spacing(1),
             },
         }));
-        // this.isClicked = false;
     }
-
-    // clicked() {
-    //     this.setState({
-    //         isClicked: true,
-    //     })
-    // }
 
     render() {
         return (
-            <Button
+            <Fab
                 color="primary" size="small" aria-label="add"
-<<<<<<< HEAD
                 className={this.classes.fab}
-                style={{boxShadow: 'none'}}
+                style={{ boxShadow: 'none' }}
                 onClick={this.props.clicked}>
-=======
-                className={this.classes.fab}>
->>>>>>> stash
                 <AddIcon />
             </Fab >
         );
