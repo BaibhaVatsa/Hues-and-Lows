@@ -8,12 +8,14 @@ class ExtraDataInput extends React.Component {
                 <Button
                     variant="outlined"
                     component="label"
+                    color="primary"
+                    size="large"
                 >
-                Upload Images
+                    Upload Images
                 <input
-                    type="file"
-                    style={{ display: "none" }}
-                />
+                        type="file"
+                        style={{ display: "none" }}
+                    />
                 </Button>
             </div>
         );
