@@ -6,34 +6,38 @@ import ArrowRightComponent from "../components/ArrowRightComponent";
 import DateComponent from "../components/DateComponent";
 import PinWheelComponent from "../components/PinWheelComponent";
 import PropTypes from "prop-types";
-import { display } from "@material-ui/system";
+import { useHistory } from 'react-router-dom';
 
-export default class HomeView extends React.Component {
-  homePageStyle = () => {
+const HomeView = (props) => {
+  let history = useHistory();
+
+  let homePageStyle = () => {
     return {
       display: "flex",
       justifyContent: "center"
     };
   };
 
-  render() {
+  // render() {
     return (
       <React.Fragment style={{ margin: "auto" }}>
-        <div style={this.homePageStyle()}>
-          <ArrowLeftComponent dateBack={this.props.dateBack} />
-          <DateComponent date={this.props.date} />
+        <div style={homePageStyle()}>
+          <ArrowLeftComponent dateBack={props.dateBack} />
+          <DateComponent date={props.date} onClick={() => history.push("/calendar")}/>
 
-          <ArrowRightComponent dateForward={this.props.dateForward} />
+          <ArrowRightComponent dateForward={props.dateForward} />
         </div>
         <PinWheelComponent colors={["black", "white", "blue"]} />
         <AddButtonComponent />
       </React.Fragment>
     );
-  }
+  // }
 }
 // PropTypes
-HomeView.propTypes = {
-  date: PropTypes.object.isRequired,
-  dateBack: PropTypes.func.isRequired,
-  dateForward: PropTypes.func.isRequired
-};
+// HomeView.propTypes = {
+//   date: PropTypes.object.isRequired,
+//   dateBack: PropTypes.func.isRequired,
+//   dateForward: PropTypes.func.isRequired
+// };
+
+export default HomeView;
