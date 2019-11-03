@@ -111,7 +111,14 @@ export default class InputView extends React.Component {
                                 </Typography>
                             </Grid>
                         </Grid>
-                        <SubmitButtonComponent />
+                        <Grid
+                            container
+                            direction="row"
+                            justify="flex-end"
+                            alignItems="flex-end"
+                        >
+                            <Grid item><SubmitButtonComponent /></Grid>
+                        </Grid>
                     </DialogContent>
                 </Dialog>
             </div>
