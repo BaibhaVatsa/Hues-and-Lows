@@ -11,7 +11,7 @@ import CalendarView from "./views/CalendarView";
 import DateComponent from "./components/DateComponent";
 import "moment-timezone";
 import moment from "moment";
-import NotesView from './views/NotesView';
+import NotesView from "./views/NotesView";
 
 class App extends React.Component {
   state = {
@@ -23,6 +23,21 @@ class App extends React.Component {
     let curDate = this.state.date;
     this.setState({ date: new Date(curDate.setDate(curDate.getDate() - 1)) });
   };
+
+  dateForward = () => {
+    let curDate = this.state.date;
+    let todaysDate = new Date();
+
+    if (
+      !(
+        curDate.getDate() === todaysDate.getDate() &&
+        curDate.getMonth() === todaysDate.getMonth() &&
+        curDate.getFullYear() === todaysDate.getFullYear()
+      )
+    ) {
+      this.setState({ date: new Date(curDate.setDate(curDate.getDate() + 1)) });
+    }
+  };
   render() {
     return (
       //<DateComponent date={this.state.date} />
@@ -33,7 +48,11 @@ class App extends React.Component {
               <HomeView date={this.state.date} />
             </Route>
             <Route path="/">
-              <HomeView date={this.state.date} dateBack={this.dateBack} />
+              <HomeView
+                date={this.state.date}
+                dateBack={this.dateBack}
+                dateForward={this.dateForward}
+              />
             </Route>
             <Route path="/notes">
               <NotesView />

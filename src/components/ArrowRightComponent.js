@@ -2,6 +2,7 @@ import React from "react";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import Fab from "@material-ui/core/Fab";
 import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
 
 class ArrowRightComponent extends React.Component {
   constructor() {
@@ -28,7 +29,7 @@ class ArrowRightComponent extends React.Component {
         variant="extended"
         className={this.classes.fab}
         style={buttonstyle}
-        onClick={() => this.clicked()}
+        onClick={this.props.dateForward}
       >
         <ArrowForwardIosIcon />
       </Fab>
@@ -44,6 +45,11 @@ const buttonstyle = {
   boxShadow: "none",
   margin: "auto",
   marginLeft: "2rem"
+};
+
+// PropTypes
+ArrowRightComponent.propTypes = {
+  dateForward: PropTypes.func.isRequired
 };
 
 export default ArrowRightComponent;

@@ -1,7 +1,7 @@
 import React from "react";
 import InputView from "./InputView";
 import ArrowLeftComponent from "../components/ArrowLeftComponent";
-import AddButtonComponent from '../components/AddButtonComponent';
+import AddButtonComponent from "../components/AddButtonComponent";
 import ArrowRightComponent from "../components/ArrowRightComponent";
 import DateComponent from "../components/DateComponent";
 import PinWheelComponent from "../components/PinWheelComponent";
@@ -23,7 +23,7 @@ export default class HomeView extends React.Component {
           <ArrowLeftComponent dateBack={this.props.dateBack} />
           <DateComponent date={this.props.date} />
 
-          <ArrowRightComponent />
+          <ArrowRightComponent dateForward={this.props.dateForward} />
         </div>
         <PinWheelComponent colors={["black", "white", "blue"]} />
         <AddButtonComponent />
@@ -34,5 +34,6 @@ export default class HomeView extends React.Component {
 // PropTypes
 HomeView.propTypes = {
   date: PropTypes.object.isRequired,
-  dateBack: PropTypes.func.isRequired
+  dateBack: PropTypes.func.isRequired,
+  dateForward: PropTypes.func.isRequired
 };
