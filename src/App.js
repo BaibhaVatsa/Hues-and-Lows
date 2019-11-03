@@ -14,10 +14,19 @@ import moment from "moment";
 import NotesView from "./views/NotesView";
 
 class App extends React.Component {
-  state = {
-    date: new Date(),
-    enties: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: new Date(),
+      entries: [],
+    };
+  }
+
+  changeDate = (newDate) => {
+    this.setState({
+      date: newDate
+    });
+  }
 
   dateBack = () => {
     let curDate = this.state.date;
@@ -38,7 +47,9 @@ class App extends React.Component {
       this.setState({ date: new Date(curDate.setDate(curDate.getDate() + 1)) });
     }
   };
+
   render() {
+    const entries = this.state.entries;
     return (
       //<DateComponent date={this.state.date} />
       <Router>
@@ -49,14 +60,16 @@ class App extends React.Component {
                 date={this.state.date}
                 dateBack={this.dateBack}
                 dateForward={this.dateForward}
+                entriesFromServer={entries}
               />
             </Route>
             <Route path="/notes">
               <NotesView />
             </Route>
-            <Route path="/calendar" component={CalendarView}>
-              {/* <CalendarView /> */}
+            <Route path="/calendar">
+              <CalendarView date={this.state.date} changeDate={this.changeDate}/>
             </Route>
+            <Redirect from="*" to="/home" />
           </Switch>
         </div>
       </Router>
