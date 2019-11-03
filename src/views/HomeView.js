@@ -23,7 +23,10 @@ export default class HomeView extends React.Component {
           <ArrowLeftComponent dateBack={this.props.dateBack} />
           <DateComponent date={this.props.date} />
 
-          <ArrowRightComponent dateForward={this.props.dateForward} />
+          <ArrowRightComponent
+            dateForward={this.props.dateForward}
+            date={this.props.date}
+          />
         </div>
         <PinWheelComponent colors={["black", "white", "blue"]} />
         <AddButtonComponent />
