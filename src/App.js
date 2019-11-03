@@ -11,6 +11,7 @@ import CalendarView from "./views/CalendarView";
 import DateComponent from "./components/DateComponent";
 import "moment-timezone";
 import moment from "moment";
+import InputView from "./views/InputView"
 import NotesView from "./views/NotesView";
 
 class App extends React.Component {
@@ -68,6 +69,9 @@ class App extends React.Component {
             </Route>
             <Route path="/calendar">
               <CalendarView date={this.state.date} changeDate={this.changeDate}/>
+            </Route>
+            <Route path="/input">
+              <InputView updateDB={this.updateDB}/>
             </Route>
             <Redirect from="*" to="/home" />
           </Switch>
