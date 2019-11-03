@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 
 const CalendarComponent = (props) => {
     let history = useHistory();
-
     return (
         <div>
             <Calendar onChange={() => history.push("/home")} value={props.date} />

@@ -45,9 +45,6 @@ class App extends React.Component {
         <div className="App">
           <Switch>
             <Route path="/home">
-              <HomeView date={this.state.date} />
-            </Route>
-            <Route path="/">
               <HomeView
                 date={this.state.date}
                 dateBack={this.dateBack}
