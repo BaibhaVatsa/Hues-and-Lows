@@ -18,15 +18,15 @@ class App extends React.Component {
     super(props);
     this.state = {
       date: new Date(),
-      entries: [],
+      entries: []
     };
   }
 
-  changeDate = (newDate) => {
+  changeDate = newDate => {
     this.setState({
       date: newDate
     });
-  }
+  };
 
   dateBack = () => {
     let curDate = this.state.date;
@@ -39,9 +39,9 @@ class App extends React.Component {
 
     if (
       !(
-        curDate.getDate() === todaysDate.getDate() &&
-        curDate.getMonth() === todaysDate.getMonth() &&
-        curDate.getFullYear() === todaysDate.getFullYear()
+        curDate.getDate() >= todaysDate.getDate() &&
+        curDate.getMonth() >= todaysDate.getMonth() &&
+        curDate.getFullYear() >= todaysDate.getFullYear()
       )
     ) {
       this.setState({ date: new Date(curDate.setDate(curDate.getDate() + 1)) });
@@ -67,7 +67,10 @@ class App extends React.Component {
               <NotesView />
             </Route>
             <Route path="/calendar">
-              <CalendarView date={this.state.date} changeDate={this.changeDate}/>
+              <CalendarView
+                date={this.state.date}
+                changeDate={this.changeDate}
+              />
             </Route>
             <Redirect from="*" to="/home" />
           </Switch>
