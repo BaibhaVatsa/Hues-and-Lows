@@ -7,12 +7,27 @@ import PinWheelComponent from "../components/PinWheelComponent";
 import PropTypes from "prop-types";
 
 export default class HomeView extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      click: false
+    };
+  }
+
+  handleClick() {
+    const value = !this.state.click;
+    this.props.PinwheelClick(value);
+  }
+
   render() {
     return (
       <div>
         <ArrowLeftComponent />
         <DateComponent date={this.props.date} />
-        <PinWheelComponent colors={["black", "white", "blue"]} />
+        <PinWheelComponent
+          EntriesFromApp={this.props.EntriesFromApp}
+          onClick={this.handleClick}
+        />
         <ArrowRightComponent />
         <InputView />
       </div>

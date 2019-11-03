@@ -7,16 +7,27 @@ import {
   Redirect
 } from "react-router-dom";
 import HomeView from "./views/HomeView";
-import NotesView from "./views/NotesView";
 import CalendarView from "./views/CalendarView";
 import DateComponent from "./components/DateComponent";
 import "moment-timezone";
 import moment from "moment";
+import NotesView from './views/NotesView';
 
 class App extends React.Component {
-  state = {
-    date: new Date()
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: new Date(),
+      entries: fetch,
+    };
+  }
+
+  pinwheelClick(value) {
+    this.setState.entries({
+      entries: fetch
+    });
+  }
+
   render() {
     return (
       //<DateComponent date={this.state.date} />
@@ -24,7 +35,7 @@ class App extends React.Component {
         <div className="App">
           <Switch>
             <Route path="/">
-              <HomeView date={this.state.date} />
+              <HomeView EntriesFromApp={this.state.entries} />
             </Route>
             <Route path="/notes">
               <NotesView />

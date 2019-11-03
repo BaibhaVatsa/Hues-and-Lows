@@ -5,7 +5,11 @@ import AllEmotions from '../Constants'
 class MoodInput extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {emotions: []};
+        this.state = {
+            emotions: [],
+            date: new Date,
+        };
+
     }
 
     addToList(emotion) {
@@ -18,8 +22,7 @@ class MoodInput extends React.Component {
     render() {
         return (
             <div>
-                <h3>How are you feeling?</h3>
-                <ul style={{"listStyle": "none"}}>
+                <ul style={{ "listStyle": "none" }}>
                     {AllEmotions.map((value, index) => <li key={index}><MoodButton emotion={value} felt={this.addToList} /></li>)}
                 </ul>
             </div>
