@@ -1,5 +1,4 @@
 import React from 'react';
-import CancelButtonComponent from '../components/CancelButtonComponent';
 import ExtraDataInputComponent from '../components/ExtraDataInputComponent';
 import MoodInputComponent from '../components/MoodInputComponent';
 import NotesInputComponent from '../components/NotesInputComponent';
@@ -9,12 +8,10 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-
 
 export default class InputView extends React.Component {
     constructor() {
@@ -87,8 +84,13 @@ export default class InputView extends React.Component {
                     fullWidth={true}
                     maxWidth="md"
                     open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
-                    <DialogTitle id="form-dialog-title">How are you feeling?</DialogTitle>
+                    <DialogTitle id="form-dialog-title" style={{margin: "auto"}}>How are you feeling?</DialogTitle>
                     <DialogContent>
+                        {/* <Grid>
+                            <Grid item>
+                                <MoodInputComponent />
+                                </Grid>                        
+                        </Grid> */}
                         <Grid
                             container
                             spacing="2"
@@ -96,9 +98,6 @@ export default class InputView extends React.Component {
                             justify="center"
                             alignItems="flex-start"
                         >
-                            <Grid item>
-                                <MoodInputComponent />
-                            </Grid>
                             <Grid item xs={12}>
                                 {this.displayNotes()}
                             </Grid>
@@ -113,7 +112,14 @@ export default class InputView extends React.Component {
                                 </Typography>
                             </Grid>
                         </Grid>
-                        <SubmitButtonComponent />
+                        <Grid
+                            container
+                            direction="row"
+                            justify="flex-end"
+                            alignItems="flex-end"
+                        >
+                            <Grid item><SubmitButtonComponent updateDB={this.props.updateDB} closePopup={this.handleClose}/></Grid>
+                        </Grid>
                     </DialogContent>
                 </Dialog>
             </div>

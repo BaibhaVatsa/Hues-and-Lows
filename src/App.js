@@ -11,6 +11,7 @@ import CalendarView from "./views/CalendarView";
 import DateComponent from "./components/DateComponent";
 import "moment-timezone";
 import moment from "moment";
+import InputView from "./views/InputView"
 import NotesView from "./views/NotesView";
 
 class App extends React.Component {
@@ -33,6 +34,11 @@ class App extends React.Component {
     this.setState({ date: new Date(curDate.setDate(curDate.getDate() - 1)) });
   };
 
+  sameDay = (curDate) => {
+    let todaysDate = new Date();
+    return curDate.getDate() === todaysDate.getDate() && curDate.getMonth() === todaysDate.getMonth() && curDate.getFullYear() === todaysDate.getFullYear()
+  }
+
   dateForward = () => {
     let curDate = this.state.date;
     let todaysDate = new Date();
@@ -48,6 +54,27 @@ class App extends React.Component {
     }
   };
 
+  refetchDB = async () => {
+    const newC = await fetch("http://127.0.0.1:8000", {
+      method: "GET",
+      credentials: "same-origin",
+      body: JSON.stringify({
+        type: () => {if (this.sameDay(this.state.date)) { return 'today'; } else { return 'month'; }},
+        data: () => {}
+      })
+    });
+    newC = JSON.parse(newC);
+    console.log(newC);
+    this.setState({
+      entries: newC
+    });
+  }
+
+  updateDB = async () => {
+    await fetch();
+    refetchDB();
+  }
+
   render() {
     const entries = this.state.entries;
     return (
@@ -61,6 +88,7 @@ class App extends React.Component {
                 dateBack={this.dateBack}
                 dateForward={this.dateForward}
                 entriesFromServer={entries}
+                updateDB={this.updateDB}
               />
             </Route>
             <Route path="/notes">
@@ -72,6 +100,9 @@ class App extends React.Component {
                 changeDate={this.changeDate}
               />
             </Route>
+            {/* <Route path="/input">
+              <InputView updateDB={this.updateDB}/>
+            </Route> */}
             <Redirect from="*" to="/home" />
           </Switch>
         </div>
