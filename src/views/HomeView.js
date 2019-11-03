@@ -40,7 +40,7 @@ const HomeView = (props) => {
           <ArrowRightComponent dateForward={props.dateForward} />
         </div>
         <PinWheelComponent colors={["black", "white", "blue"]} />
-        <AddButtonComponent />
+        <InputView />
       </React.Fragment>
     );
   // }
