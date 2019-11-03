@@ -1,4 +1,4 @@
-import Emotion from '../backend/models/Emotion'
+import Emotion from './models/Emotion';
 
 const Happy = new Emotion("happy", "blue");
 const Sad = new Emotion("sad", "black");

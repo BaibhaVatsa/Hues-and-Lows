@@ -1,4 +1,4 @@
-class Emotion {
+export default class Emotion {
     constructor(name, color) {
         this.name = name;
         this.color = color;

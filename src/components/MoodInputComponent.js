@@ -7,7 +7,7 @@ class MoodInput extends React.Component {
         super(props);
         this.state = {
             emotions: [],
-            date: new Date,
+            date: new Date(),
         };
 
     }
