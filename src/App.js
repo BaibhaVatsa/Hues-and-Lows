@@ -31,7 +31,7 @@ class App extends React.Component {
 
   dateBack = () => {
     let curDate = this.state.date;
-    this.setState({ date: new Date(curDate.setDate(curDate.getDate() - 1)) });
+    this.changeDate(new Date(curDate.setDate(curDate.getDate() - 1)));
   };
 
   sameDay = (curDate) => {
@@ -50,33 +50,57 @@ class App extends React.Component {
         curDate.getFullYear() >= todaysDate.getFullYear()
       )
     ) {
-      this.setState({ date: new Date(curDate.setDate(curDate.getDate() + 1)) });
+      this.changeDate(new Date(curDate.setDate(curDate.getDate() + 1)));
     }
   };
 
-  refetchDB = async () => {
-    const newC = await fetch("http://127.0.0.1:8000", {
-      method: "GET",
-      credentials: "same-origin",
-      body: JSON.stringify({
-        type: () => {if (this.sameDay(this.state.date)) { return 'today'; } else { return 'month'; }},
-        data: () => {}
-      })
-    });
-    newC = JSON.parse(newC);
-    console.log(newC);
-    this.setState({
-      entries: newC
-    });
-  }
+  // refetchDB = async () => {
+  //   const newC = await fetch("https://127.0.0.1:8000/psuedoget", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-type": "application/json"
+  //     },
+  //     mode: "same-origin",
+  //     // credentials: "same-origin",
+  //     body: JSON.stringify({
+  //       type: () => {if (this.sameDay(this.state.date)) { return 'today'; } else { return 'month'; }},
+  //       data: () => {
+  //         let curDate = this.state.date;
+  //         return Number.toString(curDate.getDate()) + Number.toString(curDate.getMonth()) + Number.toString(curDate.getFullYear());
+  //       }
+  //     })
+  //   });
+  //   newC = JSON.parse(newC);
+  //   console.log(newC);
+  //   this.setState({
+  //     entries: newC
+  //   });
+  // }
 
-  updateDB = async () => {
-    await fetch();
-    refetchDB();
+  updateDB = (newEvent) => {
+    // await fetch("127.0.0.1:8000", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-type": "application/json"
+    //   },
+    //   mode: "same-origin",
+    //   credentials: "same-origin",
+    //   body: JSON.stringify({
+    //     date: newEvent.date,
+    //     time: newEvent.time,
+    //     emotions: newEvent.emotions,
+    //     notes: newEvent.notes
+    //   })
+    // });
+    // this.refetchDB();
+    console.log("hello bitch");
+    this.setState({
+      entries: this.state.entries.concat(newEvent)
+    });
+    console.log("bye bitch");
   }
 
   render() {
-    const entries = this.state.entries;
     return (
       //<DateComponent date={this.state.date} />
       <Router>
@@ -87,7 +111,7 @@ class App extends React.Component {
                 date={this.state.date}
                 dateBack={this.dateBack}
                 dateForward={this.dateForward}
-                entriesFromServer={entries}
+                entriesFromServer={this.state.entries}
                 updateDB={this.updateDB}
               />
             </Route>
