@@ -39,8 +39,8 @@ const HomeView = props => {
         />
         <ArrowRightComponent dateForward={props.dateForward} />
       </div>
-      {/* <PinWheelComponent colors={["black", "white", "blue"]} /> */}
-      <CustomizedDialogs />
+      {/* <PinWheelComponent EntriesfromT /> */}
+      <CustomizedDialogs entries={props.entries}/>
 
       <InputView updateDB={props.updateDB} />
     </React.Fragment>
