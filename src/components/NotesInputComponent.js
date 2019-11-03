@@ -9,7 +9,19 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import CancelButton from './CancelButtonComponent';
 import CheckButton from './CheckButtonComponent';
 
-export default function NoteInput(){
+const useStyles = makeStyles(theme => ({
+    container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+    textField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: 200,
+    },
+}));
+
+export default function NoteInput() {
     // constructor() {
     //     super();
     //     this.classes = makeStyles(theme => ({
@@ -32,27 +44,29 @@ export default function NoteInput(){
     //     this.handleClose = this.handleClose.bind(this);
     //     this.handleChange = this.handleChange.bind(this);
     // }
-    const [open, setOpen] = React.useState(False);
+    const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
 
-    const handleClickOpen=() => {
+    const handleClickOpen = () => {
         setOpen(true);
     };
 
-    const handleClose=() =>{
+    const handleClose = () => {
         setOpen(false);
     };
 
-    const [value, setValue] = React.useState("");
-    const handleChange = (event)=> {
-            setValue(event.target.value);
+    const [valueT, setValue] = React.useState("");
+    const [note, setNote] = React.useState("");
+    const handleChange = (event) => {
+        setValue(event.target.value);
     };
 
-    const sendNote =() =>{
-        this.props.callbackFromInputView(this.value);
+    function sendNote() {
+        this.props.callbackFromInputView(valueT);
     }
 
-    const showText=() =>{
-        if (this.value.length > 0) {
+    const showText = () => {
+        if (note.length > 0) {
             return (
                 <TextField
                     id="standard-multiline-flexible"
@@ -60,50 +74,69 @@ export default function NoteInput(){
                     multiline
                     rowsMax="4"
 
-                    value={this.value}
-                    onChange={this.handleChange}
-                    className={this.classes.textField}
+                    value={valueT}
+                    onChange={handleChange}
+                    className={classes.textField}
                     margin="normal"
                 />
             );
         }
     }
 
-        return (
-            <div>
-                <Button variant="outlined" color="secondary" size="large" onClick={this.handleClickOpen}>
-                    Add Notes
-        </Button>
-                <Dialog open={this.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
-                    <DialogTitle id="form-dialog-title">Notes</DialogTitle>
-                    <DialogContent>
-                        <TextField
-                            id="standard-multiline-flexible"
-                            label=""
-                            multiline
-                            rowsMax="4"
+    const pickString = () => {
+        if (note.length > 0) {
+            return (
+                note
+            );
+        } else {
+            return (
+                valueT
+            );
+        }
+    }
 
-                            value={this.value}
-                            onChange={this.handleChange}
-                            className={this.classes.textField}
-                            margin="normal"
-                        />
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={this.handleClose}><CancelButton /></Button>
-                        <Button
-                            // onClick={() => {
-                            //     this.handleClose();
+    return (
+        <div>
+            <Button variant="outlined" color="secondary" size="large" onClick={handleClickOpen}>
+                Add Notes
+        </Button>
+            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                <DialogTitle id="form-dialog-title">Notes</DialogTitle>
+                <DialogContent>
+                    <TextField
+                        id="standard-multiline-flexible"
+                        label=""
+                        multiline
+                        rowsMax="4"
+
+                        value={valueT}
+                        onChange={handleChange}
+                        className={classes.textField}
+                        margin="normal"
+                    />
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => {
+                        handleClose();
+                        setValue('')
+                    }}
+                    ><CancelButton /></Button>
+                    {/* // ok button */}
+                    <Button
+                        onClick={() => {
+
+                            setNote(valueT);
+                            handleClose();
                             //     setValue()
                             //     this.setState({
                             //         noteValue: this.value
                             //     });
                             // }}
-                            ><CheckButton /></Button>
-                    </DialogActions>
-                </Dialog>
-                {/* {this.state.noteValue} */}
-            </div>
-        );
-    }
+                        }}><CheckButton /></Button>
+                </DialogActions>
+            </Dialog>
+            {sendNote}
+        </div>
+    );
+}
 

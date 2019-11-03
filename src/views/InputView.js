@@ -71,14 +71,14 @@ export default class InputView extends React.Component {
         this.setState({
             emotions: emotions
         });
-        console.log(this.state.emotion)
+        console.log(this.state.emotion);
     }
 
     getNotes(notes) {
         this.setState({
             noteValue: notes
         });
-        console.log(this.state.noteValue)
+        console.log(this.state.noteValue);
     }
 
     render() {
@@ -108,7 +108,7 @@ export default class InputView extends React.Component {
                             </Grid>
                             <Grid item>
                                 <Typography variant="body2" gutterBottom>
-                                    <NotesInputComponent callbackFromInputView={() => { this.getNotes() }}
+                                    <NotesInputComponent callbackFromInputView={(note) => { this.getNotes(note) }}
                                     />
                                 </Typography>
                             </Grid>
@@ -131,6 +131,7 @@ export default class InputView extends React.Component {
                         </Grid>
                     </DialogContent>
                 </Dialog>
+                {this.state.noteValue}
             </div>
         );
     }
