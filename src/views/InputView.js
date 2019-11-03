@@ -87,6 +87,11 @@ export default class InputView extends React.Component {
                     open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
                     <DialogTitle id="form-dialog-title">How are you feeling?</DialogTitle>
                     <DialogContent>
+                        <Grid>
+                            <Grid item>
+                                <MoodInputComponent />
+                            </Grid>
+                        </Grid>
                         <Grid
                             container
                             spacing="2"
@@ -94,9 +99,6 @@ export default class InputView extends React.Component {
                             justify="center"
                             alignItems="flex-start"
                         >
-                            {/* <Grid item>
-                                <MoodInputComponent />
-                            </Grid> */}
                             <Grid item xs={12}>
                                 {this.displayNotes()}
                             </Grid>
