@@ -9,11 +9,26 @@ import PropTypes from "prop-types";
 import { display } from "@material-ui/system";
 
 export default class HomeView extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: true
+    };
+  }
+
   homePageStyle = () => {
     return {
       display: "flex",
       justifyContent: "center"
     };
+  };
+
+  pinWheelClicked() {
+    const value = this.state.value;
+    this.props.callbackFromParen(!value);
+    this.setState({
+      value: !value
+    });
   };
 
   render() {
@@ -22,10 +37,9 @@ export default class HomeView extends React.Component {
         <div style={this.homePageStyle()}>
           <ArrowLeftComponent dateBack={this.props.dateBack} />
           <DateComponent date={this.props.date} />
-
           <ArrowRightComponent dateForward={this.props.dateForward} />
         </div>
-        <PinWheelComponent colors={["black", "white", "blue"]} />
+        <PinWheelComponent entries={this.props.entries} onClick={pinWheelClicked} />
         <AddButtonComponent />
       </React.Fragment>
     );
