@@ -106,11 +106,11 @@ export default class InputView extends React.Component {
                                     <NotesInputComponent />
                                 </Typography>
                             </Grid>
-                            <Grid item>
+                            {/* <Grid item>
                                 <Typography variant="body2" gutterBottom>
                                     <ExtraDataInputComponent />
                                 </Typography>
-                            </Grid>
+                            </Grid> */}
                         </Grid>
                         <Grid
                             container

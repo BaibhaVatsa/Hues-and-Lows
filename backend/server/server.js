@@ -5,7 +5,7 @@ const app = new express();
 const port = 8000;
 
 let events = []
-let today = new Event()
+// let today = new Event()
 let months = [[], [], [], [], [], [], [], [], [], [], [], []]
 
 
@@ -17,20 +17,19 @@ function putMonth(index) {
     months[index - 1].push(nEvent);
 }
 
-app.get('/', (req, res) => {
+app.post('/psuedoget', (req, res) => {
     let msg;
     try {
         req = JSON.parse(req);
-        if (req.type === 'today') {
-            msg = today;
-        } else if (req.type === 'month') {
+        console.log(req);
+        if (req.type === 'month') {
             // mm
-            msg = getMonth(parseInt(req.month));
+            msg = getMonth(parseInt(req.data.substring(0,2)));
         } else {
             // mmdd
             msg = [];
-            month = getMonth(parseInt(req.date.substring(0,2)));
-            date = parseInt(req.date.substring(2,4));
+            month = getMonth(parseInt(req.data.substring(0,2)));
+            date = parseInt(req.data.substring(2,4));
             month.map((_, value) => {
                 if (parseInt(value.getDate().substring(2,4)) === date) {
                     msg.push(value);
@@ -38,6 +37,7 @@ app.get('/', (req, res) => {
             });
         }
         msg = JSON.stringify(msg);
+        console.log(msg);
         res.status(200).send(msg);
     } catch {
         res.status(403).send('');
@@ -47,9 +47,10 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
     try {
         req = JSON.parse(req);
-        nEvent = new Event(req.date, req.time, req.emotions, req.notes, req.files);
+        console.log(req);        
+        nEvent = new Event(req.date, req.time, req.emotions, req.notes);
         events.push(nEvent);
-        today = events;
+        // today = events;
         // mmddyy
         putMonth(parseInt(req.date.substring(0,2)), nEvent);
         res.status(200);

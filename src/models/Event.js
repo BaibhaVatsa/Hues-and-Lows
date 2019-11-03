@@ -1,10 +1,9 @@
 class Event {
-    constructor(date, time, emotions, notes, files) {
+    constructor(date, time, emotions, notes) {
         this.date = date;
         this.time = time;
         this.emotions = emotions;
         this.notes = notes;
-        this.files = files;
     }
 
     getDate() {

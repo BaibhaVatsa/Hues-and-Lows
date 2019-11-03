@@ -76,7 +76,7 @@ const DialogActions = withStyles(theme => ({
   }
 }))(MuiDialogActions);
 
-export default function CustomizedDialogs() {
+export default function CustomizedDialogs(props) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -92,7 +92,7 @@ export default function CustomizedDialogs() {
         View Notes
       </Button> */}
       <Button onClick={handleClickOpen}>
-        <PinWheel />
+        <PinWheel entries={props.entries}/>
       </Button>
 
       <Dialog

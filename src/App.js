@@ -116,7 +116,7 @@ class App extends React.Component {
                 date={this.state.date}
                 dateBack={this.dateBack}
                 dateForward={this.dateForward}
-                entriesFromServer={this.state.entries}
+                entries={this.state.entries}
                 updateDB={this.updateDB}
               />
             </Route>
