@@ -1,7 +1,6 @@
 import React from "react";
 import "./PinWheel.scss";
 import NotesView from "../views/NotesView";
-import CustomizedDialogs from "./ListViewNoteComponent";
 
 class PinWheel extends React.Component {
   // whcCommon = () => {
