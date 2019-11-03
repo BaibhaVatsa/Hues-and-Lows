@@ -1,11 +1,9 @@
 import React from "react";
-import InputView from "./InputView";
 import ArrowLeftComponent from "../components/ArrowLeftComponent";
 import AddButtonComponent from "../components/AddButtonComponent";
 import ArrowRightComponent from "../components/ArrowRightComponent";
 import DateComponent from "../components/DateComponent";
 import PinWheelComponent from "../components/PinWheelComponent";
-import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 
 const HomeView = props => {
@@ -30,7 +28,7 @@ const HomeView = props => {
         <ArrowRightComponent dateForward={props.dateForward} />
       </div>
       <PinWheelComponent colors={["black", "white", "blue"]} />
-      <InputView />
+      <AddButtonComponent />
     </React.Fragment>
   );
   // }
