@@ -1,18 +1,18 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 
-export default function SubmitButton() {
-    const [isClicked, setisClicked] = React.useState(false);
-
-    const handleClick = () => {
-        setisClicked(true);
-    };
+const SubmitButton = (props) => {
 
     return (
         <div>
-            <Button onClick={handleClick} color="primary">
+            <Button onClick={() => {
+                props.updateDB();
+                props.closePopup();
+                }} color="primary">
                 Submit
           </Button>
         </div>
     )
 }
+
+export default SubmitButton;

@@ -49,6 +49,10 @@ class App extends React.Component {
     }
   };
 
+  updateDB = () => {
+    
+  }
+
   render() {
     const entries = this.state.entries;
     return (
@@ -62,6 +66,7 @@ class App extends React.Component {
                 dateBack={this.dateBack}
                 dateForward={this.dateForward}
                 entriesFromServer={entries}
+                updateDB={this.updateDB}
               />
             </Route>
             <Route path="/notes">
@@ -70,9 +75,9 @@ class App extends React.Component {
             <Route path="/calendar">
               <CalendarView date={this.state.date} changeDate={this.changeDate}/>
             </Route>
-            <Route path="/input">
+            {/* <Route path="/input">
               <InputView updateDB={this.updateDB}/>
-            </Route>
+            </Route> */}
             <Redirect from="*" to="/home" />
           </Switch>
         </div>

@@ -2,7 +2,6 @@ import React from 'react'
 import Fab from '@material-ui/core/Fab';
 import CloseSharpIcon from '@material-ui/icons/CloseSharp';
 import { makeStyles } from "@material-ui/core/styles";
-import { useHistory } from "react-router-dom";
 
 const CancelButton = (props) => {
     let classes = makeStyles(theme => ({
@@ -13,9 +12,7 @@ const CancelButton = (props) => {
           marginRight: theme.spacing(1)
         }
       }));
-  
-    let history = useHistory();
-  
+      
       return (
         <Fab
           color="secondary"
@@ -23,6 +20,7 @@ const CancelButton = (props) => {
           aria-label="add"
           className={classes.fab}
           style={{cursor: "pointer"}}
+          onClick={props.close}
         >
           <CloseSharpIcon />
         </Fab>

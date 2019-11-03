@@ -1,6 +1,7 @@
 import React from "react";
 import ArrowLeftComponent from "../components/ArrowLeftComponent";
 import AddButtonComponent from "../components/AddButtonComponent";
+import InputView from "../views/InputView";
 import ArrowRightComponent from "../components/ArrowRightComponent";
 import DateComponent from "../components/DateComponent";
 import PinWheelComponent from "../components/PinWheelComponent";
@@ -15,7 +16,7 @@ const HomeView = props => {
       justifyContent: "center"
     };
   };
-
+  
   // render() {
   return (
     <React.Fragment style={{ margin: "auto" }}>
@@ -28,7 +29,7 @@ const HomeView = props => {
         <ArrowRightComponent dateForward={props.dateForward} />
       </div>
       <PinWheelComponent colors={["black", "white", "blue"]} />
-      <AddButtonComponent />
+      <InputView updateDB={props.updateDB}/>
     </React.Fragment>
   );
   // }
