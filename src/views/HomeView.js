@@ -6,6 +6,7 @@ import ArrowRightComponent from "../components/ArrowRightComponent";
 import DateComponent from "../components/DateComponent";
 import PinWheelComponent from "../components/PinWheelComponent";
 import { useHistory } from "react-router-dom";
+import CustomizedDialogs from "../components/ListViewNoteComponent";
 
 const HomeView = props => {
   let history = useHistory();
@@ -16,7 +17,7 @@ const HomeView = props => {
       justifyContent: "center"
     };
   };
-  
+
   // render() {
   return (
     <React.Fragment style={{ margin: "auto" }}>
@@ -28,8 +29,10 @@ const HomeView = props => {
         />
         <ArrowRightComponent dateForward={props.dateForward} />
       </div>
-      <PinWheelComponent colors={["black", "white", "blue"]} />
-      <InputView updateDB={props.updateDB}/>
+      {/* <PinWheelComponent colors={["black", "white", "blue"]} /> */}
+      <CustomizedDialogs />
+
+      <InputView updateDB={props.updateDB} />
     </React.Fragment>
   );
   // }

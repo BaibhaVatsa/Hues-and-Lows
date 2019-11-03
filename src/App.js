@@ -11,7 +11,8 @@ import CalendarView from "./views/CalendarView";
 import DateComponent from "./components/DateComponent";
 import "moment-timezone";
 import moment from "moment";
-import InputView from "./views/InputView"
+import ListViewNoteComponent from "./components/ListViewNoteComponent";
+import InputView from "./views/InputView";
 import NotesView from "./views/NotesView";
 
 class App extends React.Component {
@@ -19,25 +20,29 @@ class App extends React.Component {
     super(props);
     this.state = {
       date: new Date(),
-      entries: [],
+      entries: []
     };
   }
 
-  changeDate = (newDate) => {
+  changeDate = newDate => {
     this.setState({
       date: newDate
     });
-  }
+  };
 
   dateBack = () => {
     let curDate = this.state.date;
     this.changeDate(new Date(curDate.setDate(curDate.getDate() - 1)));
   };
 
-  sameDay = (curDate) => {
+  sameDay = curDate => {
     let todaysDate = new Date();
-    return curDate.getDate() === todaysDate.getDate() && curDate.getMonth() === todaysDate.getMonth() && curDate.getFullYear() === todaysDate.getFullYear()
-  }
+    return (
+      curDate.getDate() === todaysDate.getDate() &&
+      curDate.getMonth() === todaysDate.getMonth() &&
+      curDate.getFullYear() === todaysDate.getFullYear()
+    );
+  };
 
   dateForward = () => {
     let curDate = this.state.date;
@@ -116,10 +121,14 @@ class App extends React.Component {
               />
             </Route>
             <Route path="/notes">
-              <NotesView />
+              {/* <NotesView /> */}
+              <ListViewNoteComponent />
             </Route>
             <Route path="/calendar">
-              <CalendarView date={this.state.date} changeDate={this.changeDate}/>
+              <CalendarView
+                date={this.state.date}
+                changeDate={this.changeDate}
+              />
             </Route>
             {/* <Route path="/input">
               <InputView updateDB={this.updateDB}/>
