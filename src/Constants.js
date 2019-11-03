@@ -1,12 +1,15 @@
-// import Emotion from '../backend/models/Emotion'
+import Emotion from '../backend/models/Emotion'
 
-// const Happy = new Emotion();
-// const Sad = new Emotion();
-// const Anxious = new Emotion();
-// const Angry = new Emotion();
-// const Frustrated = new Emotion();
-
-// const AllEmotions = [Happy, Sad, Anxious, Angry, Frustrated];
-const AllEmotions = ["blue", "white", "orange", "red", "grey"];
+const Happy = new Emotion("happy", "blue");
+const Sad = new Emotion("sad", "black");
+const Anxious = new Emotion("anxious", "red");
+const Angry = new Emotion("angry", "white");
+const Frustrated = new Emotion("frustrated", "black");
+const Afraid = new Emotion("afraid", "black");
+const Excited = new Emotion("excited", "yellow");
+const Stressed = new Emotion("stressed", "black");
+const Depressed = new Emotion();
+// const = new Emotion();
+const AllEmotions = [Happy, Sad, Anxious, Angry, Frustrated, Afraid, Excited, Stressed, Depressed];
 
 export default AllEmotions;
