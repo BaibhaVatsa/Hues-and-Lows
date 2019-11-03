@@ -1,7 +1,7 @@
 import React from 'react';
 import CancelButtonComponent from '../components/CancelButtonComponent';
 import ExtraDataInputComponent from '../components/ExtraDataInputComponent';
-//import MoodInputComponent from '../components/MoodInputComponent';
+import MoodInputComponent from '../components/MoodInputComponent';
 import NotesInputComponent from '../components/NotesInputComponent';
 import SubmitButtonComponent from '../components/SubmitButtonComponent';
 import AddButtonComponent from '../components/AddButtonComponent';
@@ -96,6 +96,9 @@ export default class InputView extends React.Component {
                             justify="center"
                             alignItems="flex-start"
                         >
+                            <Grid item>
+                                <MoodInputComponent />
+                            </Grid>
                             <Grid item xs={12}>
                                 {this.displayNotes()}
                             </Grid>
@@ -110,8 +113,6 @@ export default class InputView extends React.Component {
                                 </Typography>
                             </Grid>
                         </Grid>
-                        {/* <MoodInputComponent /> */}
-
                         <SubmitButtonComponent />
                     </DialogContent>
                 </Dialog>
