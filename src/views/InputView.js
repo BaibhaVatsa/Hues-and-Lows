@@ -17,17 +17,8 @@ import Typography from '@material-ui/core/Typography';
 export default class InputView extends React.Component {
     constructor() {
         super();
-        this.classes = makeStyles(theme => ({
-            container: {
-                display: 'flex',
-                flexWrap: 'wrap',
-            },
-            textField: {
-                marginLeft: theme.spacing(1),
-                marginRight: theme.spacing(1),
-                width: 200,
-            },
-        }));
+
+
         this.state = {
             open: false,
             noteValue: '',
