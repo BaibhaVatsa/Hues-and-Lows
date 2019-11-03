@@ -24,11 +24,11 @@ const HomeView = (props) => {
         <div style={homePageStyle()}>
           <ArrowLeftComponent dateBack={props.dateBack} />
           <DateComponent date={props.date} onClick={() => history.push("/calendar")}/>
-
           <ArrowRightComponent dateForward={props.dateForward} />
         </div>
         <PinWheelComponent colors={["black", "white", "blue"]} />
-        <AddButtonComponent />
+        {/* <AddButtonComponent /> */}
+        <InputView />
       </React.Fragment>
     );
   // }

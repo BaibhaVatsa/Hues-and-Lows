@@ -19,6 +19,12 @@ class App extends React.Component {
     enties: []
   };
 
+  changeDate = (newDate) => {
+    this.setState({
+      date: newDate
+    });
+  }
+
   dateBack = () => {
     let curDate = this.state.date;
     this.setState({ date: new Date(curDate.setDate(curDate.getDate() - 1)) });
@@ -55,7 +61,7 @@ class App extends React.Component {
               <NotesView />
             </Route>
             <Route path="/calendar">
-              <CalendarView date={this.state.date}/>
+              <CalendarView date={this.state.date} changeDate={this.changeDate}/>
             </Route>
           </Switch>
         </div>

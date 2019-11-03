@@ -4,7 +4,7 @@ import CalendarComponent from '../components/CalendarComponent'
 export default class CalendarView extends React.Component {
     render() {
         return (
-            <CalendarComponent date={this.props.date}/>
+            <CalendarComponent date={this.props.date} changeDate={this.props.changeDate}/>
         );
     }
 }

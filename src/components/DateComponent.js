@@ -70,7 +70,7 @@ export class DateComponent extends Component {
     let curDate = this.props.date;
     console.log(curDate);
     return (
-      <div style={this.fullClockStyle()}>
+      <div style={this.fullClockStyle()} onClick={this.props.onClick}>
         <div style={this.clockStyle()}>
           <Grid
             container

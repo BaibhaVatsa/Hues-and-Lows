@@ -6,8 +6,8 @@ const CalendarComponent = (props) => {
     let history = useHistory();
     return (
         <div>
-            <Calendar onChange={() => {
-                
+            <Calendar onChange={(date) => {
+                props.changeDate(date);
                 history.replace("/home");
                 }} value={props.date} />
         </div>
