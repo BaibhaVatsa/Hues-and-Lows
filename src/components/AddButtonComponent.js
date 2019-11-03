@@ -2,7 +2,6 @@ import React from "react";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import { makeStyles } from "@material-ui/core/styles";
-import { useHistory } from "react-router-dom";
 
 const AddButton = (props) => {
   let classes = makeStyles(theme => ({
@@ -14,8 +13,6 @@ const AddButton = (props) => {
       }
     }));
 
-  let history = useHistory();
-
     return (
       <Fab
         color="primary"
@@ -23,7 +20,6 @@ const AddButton = (props) => {
         aria-label="add"
         className={classes.fab}
         style={{cursor: "pointer"}}
-        onClick={() => history.push("/input")}
       >
         <AddIcon />
       </Fab>

@@ -13,7 +13,6 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-
 export default class InputView extends React.Component {
     constructor() {
         super();
@@ -76,13 +75,13 @@ export default class InputView extends React.Component {
                     fullWidth={true}
                     maxWidth="md"
                     open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
-                    <DialogTitle id="form-dialog-title">How are you feeling?</DialogTitle>
+                    <DialogTitle id="form-dialog-title" style={{margin: "auto"}}>How are you feeling?</DialogTitle>
                     <DialogContent>
-                        <Grid>
+                        {/* <Grid>
                             <Grid item>
                                 <MoodInputComponent />
-                            </Grid>
-                        </Grid>
+                                </Grid>                        
+                        </Grid> */}
                         <Grid
                             container
                             spacing="2"
@@ -110,7 +109,7 @@ export default class InputView extends React.Component {
                             justify="flex-end"
                             alignItems="flex-end"
                         >
-                            <Grid item><SubmitButtonComponent /></Grid>
+                            <Grid item><SubmitButtonComponent updateDB={this.props.updateDB} closePopup={this.handleClose}/></Grid>
                         </Grid>
                     </DialogContent>
                 </Dialog>
