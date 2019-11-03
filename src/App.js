@@ -68,8 +68,8 @@ class App extends React.Component {
             <Route path="/notes">
               <NotesView />
             </Route>
-            <Route path="/calendar" component={CalendarView}>
-              {/* <CalendarView /> */}
+            <Route path="/calendar">
+              <CalendarView date={this.state.date}/>
             </Route>
           </Switch>
         </div>
