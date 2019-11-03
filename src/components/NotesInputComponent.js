@@ -9,54 +9,50 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import CancelButton from './CancelButtonComponent';
 import CheckButton from './CheckButtonComponent';
 
-class NoteInput extends React.Component {
-    constructor() {
-        super();
-        this.classes = makeStyles(theme => ({
-            container: {
-                display: 'flex',
-                flexWrap: 'wrap',
-            },
-            textField: {
-                marginLeft: theme.spacing(1),
-                marginRight: theme.spacing(1),
-                width: 200,
-            },
-        }));
-        this.state = {
-            open: false,
-            noteValue: '',
-            value: '',
-        };
-        this.handleClickOpen = this.handleClickOpen.bind(this);
-        this.handleClose = this.handleClose.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+export default function NoteInput(){
+    // constructor() {
+    //     super();
+    //     this.classes = makeStyles(theme => ({
+    //         container: {
+    //             display: 'flex',
+    //             flexWrap: 'wrap',
+    //         },
+    //         textField: {
+    //             marginLeft: theme.spacing(1),
+    //             marginRight: theme.spacing(1),
+    //             width: 200,
+    //         },
+    //     }));
+    //     this.state = {
+    //         open: false,
+    //         noteValue: '',
+    //         value: '',
+    //     };
+    //     this.handleClickOpen = this.handleClickOpen.bind(this);
+    //     this.handleClose = this.handleClose.bind(this);
+    //     this.handleChange = this.handleChange.bind(this);
+    // }
+    const [open, setOpen] = React.useState(False);
+
+    const handleClickOpen=() => {
+        setOpen(true);
+    };
+
+    const handleClose=() =>{
+        setOpen(false);
+    };
+
+    const [value, setValue] = React.useState("");
+    const handleChange = (event)=> {
+            setValue(event.target.value);
+    };
+
+    const sendNote =() =>{
+        this.props.callbackFromInputView(this.value);
     }
 
-    handleClickOpen() {
-        this.setState({
-            open: true
-        });
-    };
-
-    handleClose() {
-        this.setState({
-            open: false
-        });
-    };
-
-    handleChange(event) {
-        this.setState({
-            value: event.target.value
-        });
-    };
-
-    sendNote() {
-        this.props.callbackFromInputView(this.state.noteValue);
-    }
-
-    showText() {
-        if (this.state.noteValue.length > 0) {
+    const showText=() =>{
+        if (this.value.length > 0) {
             return (
                 <TextField
                     id="standard-multiline-flexible"
@@ -64,7 +60,7 @@ class NoteInput extends React.Component {
                     multiline
                     rowsMax="4"
 
-                    value={this.state.noteValue}
+                    value={this.value}
                     onChange={this.handleChange}
                     className={this.classes.textField}
                     margin="normal"
@@ -73,13 +69,12 @@ class NoteInput extends React.Component {
         }
     }
 
-    render() {
         return (
             <div>
                 <Button variant="outlined" color="secondary" size="large" onClick={this.handleClickOpen}>
                     Add Notes
         </Button>
-                <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
+                <Dialog open={this.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
                     <DialogTitle id="form-dialog-title">Notes</DialogTitle>
                     <DialogContent>
                         <TextField
@@ -97,17 +92,18 @@ class NoteInput extends React.Component {
                     <DialogActions>
                         <Button onClick={this.handleClose}><CancelButton /></Button>
                         <Button
-                            onClick={() => {
-                                this.handleClose();
-                                this.setState({
-                                    noteValue: this.state.value
-                                });
-                            }}><CheckButton /></Button>
+                            // onClick={() => {
+                            //     this.handleClose();
+                            //     setValue()
+                            //     this.setState({
+                            //         noteValue: this.value
+                            //     });
+                            // }}
+                            ><CheckButton /></Button>
                     </DialogActions>
                 </Dialog>
                 {/* {this.state.noteValue} */}
             </div>
         );
     }
-}
-export default NoteInput;
+
