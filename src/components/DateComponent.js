@@ -3,47 +3,43 @@ import { Link } from "react-router-dom";
 import "moment-timezone";
 import moment from "moment";
 import PropTypes from "prop-types";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 export class DateComponent extends Component {
   // state = {
   //   date: new Date()
 
+  fullClockStyle = () => {
+    return {
+      textAlign: "center",
+      margin: "auto"
+    };
+  };
+
   clockStyle = () => {
     return {
       display: "flex",
-      flexWrap: "wrap",
-      //justifyContent: "space-evenly",
-      alignItems: "center",
-      textAlign: "center",
-      width: "75%",
-      margin: "auto"
+      justifyContent: "center"
     };
   };
 
   dayStyle = () => {
     return {
-      fontSize: "8rem",
-      textAlign: "center",
-      padding: "0rem",
-      marginLeft: "20rem",
-      color: "#507299"
+      fontSize: "6rem"
     };
   };
 
   monthStyle = () => {
     return {
-      fontSize: "8rem",
-      textAlign: "center",
-      marginLeft: "1.3rem"
+      fontSize: "6rem",
+      color: "#DcAE1D"
     };
   };
 
   yearStyle = () => {
     return {
-      fontSize: "8rem",
-      textAlign: "center",
-      marginLeft: "5rem",
+      fontSize: "6rem",
+
       color: "#507299"
     };
   };
@@ -54,14 +50,16 @@ export class DateComponent extends Component {
 
   render() {
     //const date = new Date();
+    let curDate = this.props.date;
+    console.log(curDate);
     return (
-      <Link to="/calendar" style={{ textDecoration: "none" }}>
+      <div style={this.fullClockStyle()}>
         <div style={this.clockStyle()}>
-          <div style={this.dayStyle()}>{this.props.date.getDate()}</div>
-          <div style={this.monthStyle()}>{moment().format("MMM")}</div>
+          <div style={this.monthStyle()}>{curDate.getMonth() + 1}</div>
+          <div style={this.dayStyle()}>{curDate.getDate()}</div>
         </div>
         <div style={this.yearStyle()}>{this.props.date.getFullYear()}</div>
-      </Link>
+      </div>
     );
   }
 }
