@@ -1,4 +1,15 @@
-# Frontend
+# Pipeline
+
+## Frontend
+
+### Components
+
+### Views
+
+## Backend
+
+### 
+<!-- # Frontend
 
 # Home View
 - Maybe it will be better if the components have a parent component just so that the state is accessible to the the date and the pinwheel and the arrows components
@@ -16,7 +27,7 @@
 - When clicked moves to the notes view to show the notes about the day
 ## Add Button Component
 - Moves to the input view to take in input
-<!-- ## Settings Menu Component -->
+## Settings Menu Component
 
 # Notes View
 - Has the following components:
@@ -85,4 +96,4 @@
 
 # NodeJS + Express vs Firebase
 ## Server
-## YAML database?
+## YAML database? -->
