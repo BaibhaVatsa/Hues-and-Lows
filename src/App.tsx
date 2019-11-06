@@ -6,10 +6,10 @@ import {
   Redirect
 } from 'react-router-dom';
 import './App.css';
-import CalendarView from './views/CalendarView';
+// import CalendarView from './views/CalendarView';
 import HomeView from './views/HomeView';
-import NotesView from './views/NotesView';
-import InputView from './views/InputView';
+// import NotesView from './views/NotesView';
+// import InputView from './views/InputView';
 
 const App: React.FC = () => {
   return (
@@ -20,13 +20,16 @@ const App: React.FC = () => {
             <HomeView />
           </Route>
           <Route path="/notes">
-            <NotesView />
+            {/* TODO directly open popup for Notes */}
+            {/* <NotesView /> */}
           </Route>
           <Route path="/calendar">
-            <CalendarView />
+            {/* TODO directly open popup for Calendar */}
+            {/* <CalendarView /> */}
           </Route>
           <Route path="/input">
-            <InputView />
+            {/* TODO directly open popup for Input */}
+            {/* <InputView /> */}
           </Route>
           <Redirect from="*" to="/home" />
         </Switch>

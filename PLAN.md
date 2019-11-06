@@ -1,14 +1,81 @@
-# Pipeline
+# System Design
+
+## Data Structures
+
+### Classes
+
+#### Emotion
+
+#### Entry
 
 ## Frontend
 
+### Common 
+
+#### Theme
+
+#### Assets
+
 ### Components
+
+#### AddButtonComponent
+
+#### ArrowLeftComponent
+
+#### ArrowRightComponent
+
+#### CalendarComponent
+
+#### DateComponent
+
+#### FileInputComponent
+
+#### ListElementComponent
+
+#### MoodInputComponent
+
+#### NotesInputComponent
+
+#### PinWheelComponent
+
+#### SubmitButtonComponent
+
+#### SettingsMenuComponent
+
+#### SliderPickerComponent
+
+#### ChangeThemeComponent
+
+#### ChangeColorMappingComponent
+
+#### ChangeGradientComponent
 
 ### Views
 
+#### CalendarView
+
+#### HomeView
+
+#### InputView
+
+#### NotesView
+
+#### WelcomeView
+
+#### SettingsView
+
+#### ChangeColorMappingView
+
 ## Backend
 
-### 
+### Server
+
+#### GET Request
+
+#### POST Request
+
+#### PUT Request
+
 <!-- # Frontend
 
 # Home View
