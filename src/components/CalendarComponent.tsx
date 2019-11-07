@@ -4,20 +4,15 @@ import PropTypes from 'prop-types';
 
 type CalendarComponentProps = {
     date: Date;
-    changeDate: (newDate: Date | Date[]) => void;
+    handleDateChange: (newDate: Date | Date[]) => void;
 }
 
 const CalendarComponent: React.FC<CalendarComponentProps> = (props: CalendarComponentProps) => {
-    let handleDateChange = (newDate: Date | Date[]) => {
-        props.changeDate(newDate);
-    };
-
     return(
         <div>
             <Calendar 
                 value={props.date}
-                onChange={newDate => handleDateChange(newDate)}
-                // TODO add Styles
+                onChange={newDate => props.handleDateChange(newDate)}
             />
         </div>
     );
