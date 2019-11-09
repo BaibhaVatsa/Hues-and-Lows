@@ -10,12 +10,12 @@ const FileInputComponent: React.FC<FileInputProps> = (props: FileInputProps) => 
     return (
         <div>
             <Button
-                variant="outlined"
-                component="label"
-                color="secondary"
-                size="large"
+                variant='outlined'
+                component='label'
+                color='secondary'
+                size='large'
             >
-                <input type="file" style={{ display: "none" }} />
+                <input type='file' style={{ display: 'none' }} />
             </Button>
         </div>
     );

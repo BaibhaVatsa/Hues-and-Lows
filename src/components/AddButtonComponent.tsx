@@ -10,7 +10,7 @@ type AddButtonProps = {
 const AddButtonComponent: React.FC<AddButtonProps> = (props: AddButtonProps) => {
     return (
         <div>
-            <Fab color="primary" size="small" aria-label="add">
+            <Fab color='primary' size='small' aria-label='add'>
             </Fab>
         </div>
     );

@@ -11,7 +11,7 @@ type ArrowProps = {
 const ArrowComponent: React.FC<ArrowProps> = (props: ArrowProps) => {
     return (
         <div>
-            <Fab size="large" aria-label="add" variant="extended">
+            <Fab size='large' aria-label='add' variant='extended'>
                 {props.suppliedIcon}
             </Fab>
         </div>

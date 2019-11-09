@@ -1,4 +1,4 @@
-import Emotion from "./Emotion";
+import Emotion from './Emotion';
 
 class Entry {
     private _user: string;

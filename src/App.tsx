@@ -19,27 +19,27 @@ const App: React.FC = () => {
 
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className='App'>
         <Switch>
-          <Route path="/welcome">
+          <Route path='/welcome'>
             <WelcomeView />
           </Route>
-          <Route path="/home">
+          <Route path='/home'>
             <HomeView />
           </Route>
-          <Route path="/notes">
+          <Route path='/notes'>
             {/* TODO directly open popup for Notes */}
             {/* <NotesView /> */}
           </Route>
-          <Route path="/calendar">
+          <Route path='/calendar'>
             {/* TODO directly open popup for Calendar */}
             {/* <CalendarView /> */}
           </Route>
-          <Route path="/input">
+          <Route path='/input'>
             {/* TODO directly open popup for Input */}
             {/* <InputView /> */}
           </Route>
-          <Redirect from="*" to="/welcome" />
+          <Redirect from='*' to='/welcome' />
         </Switch>
       </div>
     </BrowserRouter>
