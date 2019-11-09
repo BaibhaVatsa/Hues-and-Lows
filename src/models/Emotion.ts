@@ -1,10 +1,18 @@
 class Emotion {
-    name: string;
-    color: string;
+    private _name: string;
+    private _color: string;
 
-    constructor(name: string, color: string) {
-        this.name = name;
-        this.color = color;
+    public constructor(name: string, color: string) {
+        this._name = name;
+        this._color = color;
+    }
+
+    public getName(): string {
+        return this._name;
+    }
+
+    public getColor(): string {
+        return this._color;
     }
 }
 
