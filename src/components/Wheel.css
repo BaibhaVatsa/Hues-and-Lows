@@ -1,0 +1,14 @@
+:root {
+    --colors: #ffffff, #000000;
+}
+
+.conic:before{
+    font-size: 200px;
+}
+
+.conic {
+    background-image: conic-gradient('red', 'blue', 'green');
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
