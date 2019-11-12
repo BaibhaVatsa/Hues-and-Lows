@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import {
   BrowserRouter,
   Switch,
@@ -20,27 +20,26 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <div className='App'>
-        <Switch>
-          <Route path='/welcome'>
-            <WelcomeView />
-          </Route>
-          <Route path='/home'>
-            <HomeView />
-          </Route>
-          <Route path='/notes'>
-            {/* TODO directly open popup for Notes */}
-            {/* <NotesView /> */}
-          </Route>
-          <Route path='/calendar'>
-            {/* TODO directly open popup for Calendar */}
-            {/* <CalendarView /> */}
-          </Route>
-          <Route path='/input'>
-            {/* TODO directly open popup for Input */}
-            {/* <InputView /> */}
-          </Route>
-          <Redirect from='*' to='/welcome' />
-        </Switch>
+        <Suspense fallback={<WelcomeView />}>
+          <Switch>
+            <Route path='/home'>
+              <HomeView />
+            </Route>
+            <Route path='/notes'>
+              {/* TODO directly open popup for Notes */}
+              {/* <NotesView /> */}
+            </Route>
+            <Route path='/calendar'>
+              {/* TODO directly open popup for Calendar */}
+              {/* <CalendarView /> */}
+            </Route>
+            <Route path='/input'>
+              {/* TODO directly open popup for Input */}
+              {/* <InputView /> */}
+            </Route>
+            <Redirect from='*' to='/home' />
+          </Switch>
+        </Suspense>
       </div>
     </BrowserRouter>
   );

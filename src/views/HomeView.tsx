@@ -7,9 +7,7 @@ type HomeViewProps = {
 
 const HomeView: React.FC<HomeViewProps> = (props: HomeViewProps) => {
     return (
-        <>
-            <PinWheelComponent handleClick={() => alert('clicked!')} colours={['#d0c9d6', '#000000', '#787878']}></PinWheelComponent>
-        </>
+        <PinWheelComponent handleClick={() => alert('clicked!')} colours={['#d0c9d6', '#000000', '#787878']}></PinWheelComponent>
     );
 }
 

@@ -6,9 +6,7 @@ type CalendarViewProps = {
 
 const CalendarView: React.FC<CalendarViewProps> = (props: CalendarViewProps) => {
     return (
-        <>
-            
-        </>
+        <></>
     );
 }
 
