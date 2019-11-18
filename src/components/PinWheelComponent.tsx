@@ -19,8 +19,8 @@ const PinWheelComponent: React.FC<PinWheelProps> = (props: PinWheelProps) => {
             root.style.setProperty('--colors', DEFAULT);
         } else {
             let str: string =  props.colours.join(', ');
-            let finalStr: string = str.substr(0, str.length - 1);
-            root.style.setProperty('--colors', finalStr);
+            // let finalStr: string = str.substr(0, str.length - 1);
+            root.style.setProperty('--colors', str);
         }
     });
 
