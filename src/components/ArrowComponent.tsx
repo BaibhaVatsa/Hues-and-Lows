@@ -5,8 +5,9 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 type ArrowProps = {
-    handleClick: (direction: Number) => void;
-    direction: String;
+    handleClick: (direction: number) => void;
+    direction: string;
+    disabled: boolean;
 }
 
 const ArrowComponent: React.FC<ArrowProps> = (props: ArrowProps) => {
@@ -14,7 +15,8 @@ const ArrowComponent: React.FC<ArrowProps> = (props: ArrowProps) => {
     return (
         <div>
             <Fab size='large' aria-label='add' variant='extended' 
-                onClick={() => props.handleClick(directionNumber)}>
+                onClick={() => props.handleClick(directionNumber)}
+                disabled={props.disabled}>
                 {(directionNumber == 1) ? <ChevronRightIcon /> : <ChevronLeftIcon />}
             </Fab>
         </div>
@@ -23,7 +25,8 @@ const ArrowComponent: React.FC<ArrowProps> = (props: ArrowProps) => {
 
 ArrowComponent.propTypes = {
     handleClick: PropType.func.isRequired,
-    direction: PropType.instanceOf(String).isRequired
+    direction: PropType.string.isRequired,
+    disabled: PropType.bool.isRequired,
 }
 
 export default ArrowComponent;
