@@ -10,7 +10,10 @@ type ArrowProps = {
     disabled: boolean;
 }
 
-const vanillaArrowStyle = {boxShadow: "none", background: "#f4f4f4"}
+const vanillaArrowStyle = {
+    boxShadow: "none", 
+    background: "#f4f4f4"
+}
 
 const ArrowComponent: React.FC<ArrowProps> = (props: ArrowProps) => {
     const directionNumber = (props.direction === "right") ? 1 : -1;
