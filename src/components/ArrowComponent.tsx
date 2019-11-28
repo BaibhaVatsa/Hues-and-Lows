@@ -10,13 +10,16 @@ type ArrowProps = {
     disabled: boolean;
 }
 
+const vanillaArrowStyle = {boxShadow: "none", background: "#f4f4f4"}
+
 const ArrowComponent: React.FC<ArrowProps> = (props: ArrowProps) => {
     const directionNumber = (props.direction === "right") ? 1 : -1;
     return (
         <div>
-            <Fab size='large' aria-label='add' variant='extended' 
+            <Fab size='large' aria-label='change_date' 
                 onClick={() => props.handleClick(directionNumber)}
-                disabled={props.disabled}>
+                disabled={props.disabled}
+                style={vanillaArrowStyle}>
                 {(directionNumber == 1) ? <ChevronRightIcon /> : <ChevronLeftIcon />}
             </Fab>
         </div>
