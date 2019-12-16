@@ -23,7 +23,7 @@ const ArrowComponent: React.FC<ArrowProps> = (props: ArrowProps) => {
                 onClick={() => props.handleClick(directionNumber)}
                 disabled={props.disabled}
                 style={vanillaArrowStyle}>
-                {(directionNumber == 1) ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                {(directionNumber === 1) ? <ChevronRightIcon /> : <ChevronLeftIcon />}
             </Fab>
         </div>
     );
