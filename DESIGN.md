@@ -2,33 +2,74 @@
 
 ## Data Structures
 
+- Arrays: for emotions
+
 ### Classes
 
 #### Emotion
 
+- Should be able to store name of the emotion and corresponding color it maps to.
+- getColor
+- getName
+
 #### Entry
+
+    Entry must have:
+
+- list of emotion yoou selected.
+- date and time
+- list of files you uploaded(images)
+- string for notes you typed.
 
 ## Frontend
 
-### Common 
+### Common
+
+    Files which are common among all elements.
+    Example: a theme: defines overall style of our program.
 
 #### Theme
 
+    - overall styling,
+    - font, font size, spacing
+
 #### Assets
+
+    - any icons, images.
+    - we need logo.
+    - for the app, not entered by the users
 
 ### Components
 
 #### AddButtonComponent
 
-#### ArrowLeftComponent
+- opens a pop-up which is a input form
 
-#### ArrowRightComponent
+#### ArrowComponent
+
+- changes date and updates views accordingly
+- there is a left arrow and right arrow.
+- left arrow should goes to the previous date, right arrow goes following date
+- right arrow should
 
 #### CalendarComponent
 
+- show a calendar
+- should be a pop
+- when you click on a date it should go back to home view and the date component should show the date you clicked
+
 #### DateComponent
 
+- should show today's date by default.
+- should show the date passed by props.
+- should open the calendar view when clicked
+
 #### FileInputComponent
+
+- allows you to upload the image.
+- shows the preview of the image
+- when you click, it opens browse file
+- once you select file it shows a preview.
 
 #### ListElementComponent
 
@@ -146,20 +187,20 @@
 
 # Data Structures
 ## User Class
-- Today 
+- Today
 - Name
 - Password
-- HashMap for month to array of 
+- HashMap for month to array of
 
 ## Emotion Class
 - Description of emotion
 - Name
-- Colour associated with it 
+- Colour associated with it
 
 ## Event Class
 ### Has a notes field
 ### Array for list of extra items uploaded by user like images
-### 
+###
 
 # NodeJS + Express vs Firebase
 ## Server
